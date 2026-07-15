@@ -5,6 +5,9 @@ local loc = {
 	mod_description = {
 		en = "A detachable timer for the broker stim ability that can be positioned anywhere on screen.",
 	},
+	general = {
+		en = "General",
+	},
 	display_group = {
 		en = "Display",
 	},
