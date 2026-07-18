@@ -7,7 +7,7 @@ local function is_duplicated(color_array)
 	local join = function(t)
 		return string.format("%s,%s,%s", t[2], t[3], t[4])
 	end
-	
+
 	local color_key = join(color_array)
 	if seen_colors[color_key] then
 		return true
@@ -28,7 +28,7 @@ table.insert(color_options, 1, { text = "default", value = "default" })
 local function stage_color_widgets(stage, default_r, default_g, default_b, tab_name)
 	local stage_color_options = table.clone(color_options)
 	stage_color_options[1] = { text = "default_" .. stage, value = "default" }
-	
+
 	return {
 		setting_id = stage,
 		type = "group",
