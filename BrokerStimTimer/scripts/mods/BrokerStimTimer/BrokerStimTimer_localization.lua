@@ -27,6 +27,10 @@ local loc = {
 		en = "Show Decimals",
 		["zh-cn"] = "显示小数",
 	},
+	track_standard_stims = {
+		en = "Track Standard Stims",
+		["zh-cn"] = "追踪标准兴奋剂",
+	},
 	link_all_positions = {
 		en = "Link All Positions",
 		["zh-cn"] = "统一全部位置参数",
