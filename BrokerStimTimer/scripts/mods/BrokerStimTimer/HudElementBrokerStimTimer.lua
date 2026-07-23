@@ -233,6 +233,49 @@ end
 HudElementBrokerStimTimer.update = function(self, dt, t, ui_renderer, render_settings, input_service)
 	HudElementBrokerStimTimer.super.update(self, dt, t, ui_renderer, render_settings, input_service)
 
+	local current_icon_size = mod:get("icon_size") or 64
+	local current_font_size = mod:get("font_size") or 30
+
+	if self._cached_icon_size ~= current_icon_size or self._cached_font_size ~= current_font_size then
+		self._cached_icon_size = current_icon_size
+		self._cached_font_size = current_font_size
+
+		local text_width = current_font_size * 2.5
+		local text_height = current_font_size * 1.2
+
+		for _, widget_name in ipairs({"shared_icon", "ready_icon", "active_icon", "cooldown_icon"}) do
+			local widget = self._widgets_by_name[widget_name]
+			if widget then
+				widget.style.icon.size = { current_icon_size, current_icon_size }
+				
+				local node_name = widget_name .. "_root"
+				if self._ui_scenegraph and self._ui_scenegraph[node_name] then
+					self._ui_scenegraph[node_name].size = { current_icon_size, current_icon_size }
+					self._ui_scenegraph[node_name].local_size = { current_icon_size, current_icon_size }
+				end
+				widget.dirty = true
+			end
+		end
+
+		for _, widget_name in ipairs({"shared_text", "active_text", "cooldown_text"}) do
+			local widget = self._widgets_by_name[widget_name]
+			if widget then
+				widget.style.text.font_size = current_font_size
+				
+				local node_name = widget_name .. "_root"
+				if self._ui_scenegraph and self._ui_scenegraph[node_name] then
+					self._ui_scenegraph[node_name].size = { text_width, text_height }
+					self._ui_scenegraph[node_name].local_size = { text_width, text_height }
+				end
+				widget.dirty = true
+			end
+		end
+		
+		if type(self._update_scenegraph) == "function" then
+			self:_update_scenegraph()
+		end
+	end
+
 	local custom_hud_mod = rawget(_G, "get_mod") and get_mod("custom_hud")
 	local saved_node_settings = custom_hud_mod and custom_hud_mod:get("saved_node_settings") or {}
 	local element_name = self.__class_name
