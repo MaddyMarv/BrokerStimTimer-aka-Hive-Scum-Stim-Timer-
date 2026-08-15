@@ -428,14 +428,16 @@ HudElementBrokerStimTimer.update = function(self, dt, t, ui_renderer, render_set
 	if is_broker_stim then
 		active_buff_time = self:_get_buff_remaining_time(buff_extension, STIMM_BUFF_NAME)
 		active_cooldown = ability_extension:remaining_ability_cooldown(STIMM_ABILITY_TYPE)
-	else
+	end
+	
+	if not is_broker_stim or track_standard_stims then
 		local active_stimm_name = nil
 		local buffs_by_index = buff_extension._buffs_by_index
 		
 		if buffs_by_index then
 			for _, buff in pairs(buffs_by_index) do
 				local template = buff:template()
-				if template and template.name and string.find(template.name, "^syringe") and template.name ~= STIMM_BUFF_NAME then
+				if template and template.name and string.find(template.name, "^syringe") and not string.find(template.name, "^syringe_broker_buff") then
 					local remaining = buff:duration_progress() or 1
 					local duration = buff:duration() or 15
 					local remaining_time = duration * remaining
@@ -471,11 +473,11 @@ HudElementBrokerStimTimer.update = function(self, dt, t, ui_renderer, render_set
 				active_color_tint = FALLBACK_COLORS[active_stimm_name] or { 255, 38, 205, 26 }
 			end
 		end
-		
-		if active_buff_time < 0.05 then
-			hide_all_widgets()
-			return
-		end
+	end
+	
+	if not is_broker_stim and active_buff_time < 0.05 then
+		hide_all_widgets()
+		return
 	end
 
 	local remaining_buff_time = active_buff_time
@@ -699,10 +701,12 @@ HudElementBrokerStimTimer._get_buff_remaining_time = function(self, buff_extensi
 	local timer = 0
 	for _, buff in pairs(buffs_by_index) do
 		local template = buff:template()
-		if template and template.name == buff_template_name then
-			local remaining = buff:duration_progress() or 1
-			local duration = buff:duration() or 15
-			timer = math.max(timer, duration * remaining)
+		if template and template.name then
+			if string.find(template.name, "^syringe_broker_buff") then
+				local remaining = buff:duration_progress() or 1
+				local duration = buff:duration() or 15
+				timer = math.max(timer, duration * remaining)
+			end
 		end
 	end
 
