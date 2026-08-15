@@ -1,0 +1,14 @@
+{
+    "name": "BrokerStimTimer",
+    "author": "IndicaBunny",
+    "version": "2.7",
+    "source": "https://github.com/MaddyMarv/BrokerStimTimer-aka-Hive-Scum-Stim-Timer-",
+    "kofi": "https://ko-fi.com/indicabunny",
+    "description": "Adds a clear HUD timer to track your stim duration for the Broker class.",
+    "order": {
+        "require": [],
+        "this_before": [],
+        "this_after": []
+    },
+    "localization": {}
+}
