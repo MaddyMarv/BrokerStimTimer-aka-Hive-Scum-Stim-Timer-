@@ -32,7 +32,7 @@ mod.on_enabled = function()
 
 	mod:register_hud_element({
 		class_name = "HudElementBrokerStimTimer",
-		filename = "BrokerStimTimer/scripts/mods/BrokerStimTimer/HudElementBrokerStimTimer",
+		filename = "BrokerStimTimer/scripts/mods/BrokerStimTimer/hud/HudElementBrokerStimTimer",
 		visibility_groups = {
 			"alive"
 		},
