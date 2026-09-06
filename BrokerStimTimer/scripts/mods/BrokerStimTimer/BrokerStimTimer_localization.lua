@@ -5,7 +5,7 @@ local loc = {
 		ru = "Таймер стимулятора отребья улья",
 	},
 	mod_description = {
-		en = "Moveable on screen timer for Broker stim duration and cooldown.",
+		en = "Moveable on-screen timer for Broker stim duration and cooldown.",
 		["zh-cn"] = "独立的巢都渣滓兴奋剂计时组件，可以放置在屏幕任意位置",
 		ru = "Broker Stim Timer - Отдельный таймер для способности стимулятора отребья улья, который можно разместить в любом месте экрана.",
 	},

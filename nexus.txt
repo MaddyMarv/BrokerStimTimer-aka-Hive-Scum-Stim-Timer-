@@ -1,4 +1,4 @@
-Moveable on screen timer for Broker stim duration and cooldown.
+Moveable on-screen timer for Broker stim duration and cooldown.
 
 [b]Options:[/b]
 

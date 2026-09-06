@@ -7,7 +7,7 @@
     "funding": {
         "kofi": "https://ko-fi.com/indicabunny"
     },
-    "description": "Moveable on screen timer for Broker stim duration and cooldown.",
+    "description": "Moveable on-screen timer for Broker stim duration and cooldown.",
     "dependencies": {
         "required": [],
         "self_after": [],
