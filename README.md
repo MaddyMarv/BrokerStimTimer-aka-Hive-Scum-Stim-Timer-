@@ -4,23 +4,25 @@
 Standalone mod that tracks your stim timer specifically for the Broker class. The base game's indicator for this is terrible and hard to read, so this mod adds a much clearer timer that you can move anywhere on your screen. You will always know exactly how much time you have left before your stim wears off, its cooldown, and when your stim is ready!
 
 **Options:**
+
+**General**
 - Track Standard Stims
 - Font Size & Icon Size
 - Show Decimals
 - Link All Positions
 - Shared Icon & Text Position X/Y
 
-**Ready State**
+**Ready**
 - Ready Color
 - Ready Icon Position X/Y
 - Show Ready Icon
 
-**Active State**
+**Active**
 - Active Color
 - Active Icon & Text Position X/Y
 - Show Active Icon & Timer
 
-**Cooldown State**
+**Cooldown**
 - Cooldown Color
 - Cooldown Icon & Text Position X/Y
 - Show Cooldown Icon & Timer
