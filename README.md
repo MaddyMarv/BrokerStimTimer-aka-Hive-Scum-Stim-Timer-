@@ -3,15 +3,26 @@
 
 Standalone mod that tracks your stim timer specifically for the Broker class. The base game's indicator for this is terrible and hard to read, so this mod adds a much clearer timer that you can move anywhere on your screen. You will always know exactly how much time you have left before your stim wears off, its cooldown, and when your stim is ready!
 
-
 **Options:**
 - Track Standard Stims
-- Font Size
-- Icon Size
-- Show Options (Decimals, Icon, Timer)
+- Font Size & Icon Size
+- Show Decimals
 - Link All Positions
-- Icon Position X/Y
-- Text Position X/Y
-- Color Options (Ready, Active, Cooldown)
+- Shared Icon & Text Position X/Y
+
+**Ready State**
+- Ready Color
+- Ready Icon Position X/Y
+- Show Ready Icon
+
+**Active State**
+- Active Color
+- Active Icon & Text Position X/Y
+- Show Active Icon & Timer
+
+**Cooldown State**
+- Cooldown Color
+- Cooldown Icon & Text Position X/Y
+- Show Cooldown Icon & Timer
 
 🔗 **Links:** [Source Code](https://github.com/MaddyMarv/BrokerStimTimer-aka-Hive-Scum-Stim-Timer-) | [Nexus Mods Profile](https://www.nexusmods.com/profile/indicabunny) | [Support Me on Ko-fi](https://ko-fi.com/indicabunny)
