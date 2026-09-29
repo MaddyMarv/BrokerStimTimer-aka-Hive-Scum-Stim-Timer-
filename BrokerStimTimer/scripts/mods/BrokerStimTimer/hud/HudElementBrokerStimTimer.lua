@@ -427,7 +427,11 @@ HudElementBrokerStimTimer.update = function(self, dt, t, ui_renderer, render_set
 	
 	if is_broker_stim then
 		active_buff_time = self:_get_buff_remaining_time(buff_extension, STIMM_BUFF_NAME)
-		active_cooldown = ability_extension:remaining_ability_cooldown(STIMM_ABILITY_TYPE)
+		if ability_extension:is_ability_resource_regen_paused(STIMM_ABILITY_TYPE) then
+			active_cooldown = 0
+		else
+			active_cooldown = ability_extension:missing_ability_resource_until_next_charge(STIMM_ABILITY_TYPE) or 0
+		end
 	end
 	
 	if not is_broker_stim or track_standard_stims then
