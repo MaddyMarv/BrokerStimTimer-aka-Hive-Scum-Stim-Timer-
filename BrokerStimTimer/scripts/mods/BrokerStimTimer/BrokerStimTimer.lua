@@ -6,8 +6,7 @@ local packages_to_load = {
 }
 
 local STIMM_ICON_MATERIAL = "content/ui/materials/icons/pocketables/hud/syringe_broker"
-local _package_id = nil
-
+local _stimm_package_id = nil
 
 
 local function get_stage_color(stage)
@@ -20,31 +19,33 @@ end
 
 mod.get_stage_color = get_stage_color
 
-mod.on_enabled = function()
-	for _, package_path in ipairs(packages_to_load) do
-		Managers.package:load(package_path, mod:get_name(), nil, true)
-	end
+mod.on_enabled = function(is_first_call)
+	if Managers.package then
+		for _, package_path in ipairs(packages_to_load) do
+			Managers.package:load(package_path, mod:get_name(), nil, true)
+		end
 
-	local resource_package = Application.resource_package(STIMM_ICON_MATERIAL)
-	if resource_package then
-		_package_id = Managers.package:load(STIMM_ICON_MATERIAL, mod:get_name(), nil, true)
+		local resource_package = Application.resource_package(STIMM_ICON_MATERIAL)
+		if resource_package and not _stimm_package_id then
+			_stimm_package_id = Managers.package:load(STIMM_ICON_MATERIAL, mod:get_name(), nil, true)
+		end
 	end
-
-	mod:register_hud_element({
-		class_name = "HudElementBrokerStimTimer",
-		filename = "BrokerStimTimer/scripts/mods/BrokerStimTimer/hud/HudElementBrokerStimTimer",
-		visibility_groups = {
-			"alive"
-		},
-		use_hud_scale = false,
-	})
 end
 
+mod:register_hud_element({
+	class_name = "HudElementBrokerStimTimer",
+	filename = "BrokerStimTimer/scripts/mods/BrokerStimTimer/hud/HudElementBrokerStimTimer",
+	visibility_groups = {
+		"alive"
+	},
+	use_hud_scale = false,
+})
+
 mod.on_disabled = function()
-	if _package_id then
-		Managers.package:release(_package_id)
-		_package_id = nil
-	end
+	mod:remove_require_path("BrokerStimTimer/scripts/mods/BrokerStimTimer/HudElementBrokerStimTimer")
+end
+
+mod.on_unload = function(exit_game)
 	mod:remove_require_path("BrokerStimTimer/scripts/mods/BrokerStimTimer/HudElementBrokerStimTimer")
 end
 
