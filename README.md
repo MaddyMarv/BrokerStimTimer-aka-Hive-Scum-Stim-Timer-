@@ -3,7 +3,8 @@
 
 Moveable on-screen timer for Broker stim duration and cooldown.
 
-**Options:**
+<details>
+<summary><b>Mod Settings / Commands</b></summary>
 
 **General**
 - Track Standard Stims
@@ -26,5 +27,6 @@ Moveable on-screen timer for Broker stim duration and cooldown.
 - Cooldown Color
 - Cooldown Icon & Text Position X/Y
 - Show Cooldown Icon & Timer
+</details>
 
 🔗 **Links:** [Source Code](https://github.com/MaddyMarv/BrokerStimTimer-aka-Hive-Scum-Stim-Timer-) | [Nexus Mods Profile](https://www.nexusmods.com/profile/indicabunny) | [Support Me on Ko-fi](https://ko-fi.com/indicabunny)
